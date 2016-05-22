@@ -1,0 +1,8 @@
+Pelican Weather is simple weather app
+
+Requirements
+  - Node
+
+How to run:
+  - npm install
+  - gulp
