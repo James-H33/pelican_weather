@@ -2,5 +2,16 @@ doctype html
 html
   head
     meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css')
     link(rel="stylesheet", href="/css/main.css")
   body
+    nav.header-wrapper
+      div.header-display
+        div.header-logo
+          h1 Pelican Weather
+        ul
+          li: a(href="#") myWeather
+          li: a(href="#") login
+          li: a(href="#") logout
+          li: a(href="#") register

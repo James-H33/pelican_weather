@@ -37,7 +37,7 @@ gulp.task('imgs', function(){
 
 gulp.task('browserSync', ['nodemon'], function(){
   browserSync.init(null, {
-    proxy: 'http://localhost:5000',
+    proxy: 'http://localhost:6000',
     files: ['view/index.pug'],
     browser: 'google chrome',
     port: 7000
