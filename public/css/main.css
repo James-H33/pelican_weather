@@ -3,4 +3,104 @@
   margin: 0; }
 
 body {
-  background: #ccc; }
+  background: #525C64;
+  font-family: 'Open Sans', sans-serif; }
+
+.header-wrapper {
+  width: 100%;
+  height: 200px; }
+
+.header-display {
+  width: 100%;
+  height: 100%;
+  position: relative; }
+  .header-display ul {
+    width: 500px;
+    position: absolute;
+    top: 14px;
+    right: 10px; }
+    .header-display ul li {
+      width: 100px;
+      height: 35px;
+      text-align: center;
+      margin: 0 10px;
+      display: inline-block; }
+      .header-display ul li:hover a {
+        color: #A5ACAF; }
+      .header-display ul li:nth-of-type(4) {
+        background: #54BAE6;
+        border-radius: 4px;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease; }
+        .header-display ul li:nth-of-type(4) a {
+          color: #ffffff; }
+        .header-display ul li:nth-of-type(4):hover {
+          background: #2E3335; }
+          .header-display ul li:nth-of-type(4):hover a {
+            color: #F1F8F9; }
+      .header-display ul li a {
+        color: #F1F8F9;
+        font-size: 20px;
+        text-decoration: none;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease; }
+
+.header-logo {
+  width: 200px;
+  color: #F1F8F9;
+  position: absolute;
+  top: 10px;
+  left: 10px; }
+  .header-logo h1 {
+    font-weight: normal; }
+
+.pelican-intro-wrapper {
+  width: 100%;
+  height: 100%; }
+
+.pelican-intro-display {
+  width: 400px;
+  height: 400px;
+  background: #F1F8F9;
+  margin: 0 auto;
+  border-radius: 10px; }
+
+.pelican-weather {
+  width: 100%;
+  height: 200px; }
+
+.pelican-weather-info {
+  width: 100%;
+  height: 100px; }
+  .pelican-weather-info li {
+    width: 25%;
+    height: 100%;
+    display: inline-block;
+    text-align: center; }
+    .pelican-weather-info li span {
+      display: block; }
+    .pelican-weather-info li:nth-of-type(1) {
+      color: #A5ACAF;
+      font-size: 50px; }
+    .pelican-weather-info li:nth-of-type(2) {
+      width: 50%;
+      height: auto;
+      font-size: 18px;
+      color: #A5ACAF;
+      text-align: left; }
+      .pelican-weather-info li:nth-of-type(2) span:nth-of-type(2) {
+        color: #525C64; }
+    .pelican-weather-info li:nth-of-type(3) {
+      height: 65px;
+      font-size: 20px;
+      color: #F1F8F9;
+      background: #54BAE6; }
+
+.pelican-weather-bottom {
+  width: 100%;
+  height: 150px;
+  background: #2E3335;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; }
