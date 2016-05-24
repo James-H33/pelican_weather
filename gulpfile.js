@@ -11,7 +11,7 @@ gulp.task('default', ['sass', 'scripts', 'imgs', 'browserSync'], function(){});
 
 gulp.task('sass', function(){
   return gulp.src('./src/sass/main.sass')
-            .pipe(sass())
+            .pipe(sass().on('error', sass.logError))
             .pipe(plumber())
             .pipe(autoprefixer({
               browser: ['last 2 versions'],
