@@ -3,13 +3,21 @@ include ./partials/header.pug
 section.pelican-intro-wrapper
   div.pelican-intro-display
     div.pelican-weather
-      h2 Weather Icon
+      i(class="wi wi-day-cloudy")
     div.pelican-weather-info
-      li 79° 
       li
-        span Cloudy Skies
-        span Palmetto, Florida
+        h2 #{weather.main.temp}
+        span °
+          i F
       li
-        span May
-        span 21
+        span #{weather.weather[0].main}
+        span #{weather.name}
+      li
+        span
+        span
     div.pelican-weather-bottom
+      form(action="/" method="GET")
+        input(type="text" placeholder="city name" name="search" required)
+        input(type="submit")
+
+include ./partials/footer.pug

@@ -23,8 +23,8 @@ gulp.task('sass', function(){
 
 gulp.task('scripts', function(){
   return gulp.src('./src/js/functions.js')
-              .pipe(uglify())
               .pipe(plumber())
+              .pipe(uglify())
               .pipe(gulp.dest('./public/min-js/'))
               .pipe(browserSync.reload({stream: true}));
 });
@@ -36,7 +36,8 @@ gulp.task('imgs', function(){
 });
 
 gulp.task('browserSync', ['nodemon'], function(){
-  browserSync.init(null, {
+
+  browserSync.init( null, {
     proxy: 'http://localhost:6000',
     files: ['view/index.pug'],
     browser: 'google chrome',

@@ -7,19 +7,32 @@
   height: 100%
 
 .pelican-intro-display
-  width: 400px
-  height: 400px
+  width: 300px
+  height: auto
   background: $weather-back-color
   margin: 0 auto
-  border-radius: 10px
+  border-radius: 15px
+  box-shadow: 0px 5px 20px 5px $weather-bottom-color
+
+@media(min-width: 769px)
+
+  .pelican-intro-display
+    width: 400px
 
 .pelican-weather
   width: 100%
-  height: 200px
+  height: 250px
+  display: flex
+  align-items: center
+  justify-content: center
+
+  i
+    font-size: 100px
+    color: $degree-color
 
 .pelican-weather-info
   width: 100%
-  height: 100px
+  height: 80px
 
   li
     width: 25%
@@ -32,7 +45,18 @@
 
     &:nth-of-type(1)
       color: $degree-color
-      font-size: 50px
+      vertical-align: top
+
+
+      h2
+        font-size: 40px
+        font-weight: normal
+        display: inline
+
+      span
+        display: initial
+        vertical-align: 18px
+        font-size: 16px
 
     &:nth-of-type(2)
       width: 50%
@@ -40,21 +64,75 @@
       font-size: 18px
       color: $degree-color
       text-align: left
+      vertical-align: middle
 
       span:nth-of-type(2)
         color: $main-back-color
 
 
     &:nth-of-type(3)
-      height: 65px
+      height: 60px
       font-size: 20px
       color: $weather-back-color
       background: $off-blue
 
+@media (min-width: 769px)
+
+  .pelican-weather-info
+
+    li:nth-of-type(1)
+
+      h2
+        font-size: 50px
+
+      span
+        display: initial
+        vertical-align: 22px
+        font-size: 20px
 
 .pelican-weather-bottom
   width: 100%
   height: 150px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
   background: $weather-bottom-color
   border-bottom-left-radius: 10px
   border-bottom-right-radius: 10px
+
+  form
+    width: 85%
+    height: 40px
+    margin: 0 auto
+    text-align: center
+
+    input:nth-of-type(1)
+      width: 100%
+      color: $off-blue
+      font-size: 25px
+      background: transparent
+      padding: 2px
+      border: none
+      outline: none
+      border-bottom: 2px solid $degree-color
+
+      &:focus
+        border-bottom: 2px solid $off-blue
+
+    input:nth-of-type(2)
+      width: 150px
+      height: 30px
+      font-size: 20px
+      color: $weather-back-color
+      background: $off-blue
+      margin: 10px auto
+      outline: none
+      border: none
+      border-radius: 4px
+      transform: translateY(5px)
+      transition: all 0.5s ease
+
+      &:hover
+        background: $main-back-color
+        transform: translateY(2px)
