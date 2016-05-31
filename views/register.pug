@@ -1,0 +1,17 @@
+include ./partials/header.pug
+
+section.register-wrapper
+  div.register-display
+    div.register-form
+      div.register-form-heading
+        h2 Register Form
+      form(action='/register' method='POST').register-form-input
+        input(type='text' name='username' placeholder='Username' required)
+        input(type='password' name='password' placeholder='Password' required)
+        div.register-form-footer
+          figure
+            li: button Submit
+            li: a(href='/login') login
+
+
+include ./partials/footer.pug
