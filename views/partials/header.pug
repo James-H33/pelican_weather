@@ -20,6 +20,10 @@ html
           img(src="/imgs/pelican-logo.png")
           h2 Pelican Weather
         ul
-          li: a(href="#") login
-          li: a(href="#") logout
-          li: a(href="#") register
+          - if (!user) {
+            li: a(href="/login") login
+            li: a(href="/register") register
+          - } else {
+            li: a(href="#") UserName
+            li: a(href="#") logout
+          - }

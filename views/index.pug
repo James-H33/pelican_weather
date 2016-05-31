@@ -19,5 +19,12 @@ section.pelican-intro-wrapper
       form(action="/" method="GET")
         input(type="text" placeholder="city name" name="search" required)
         input(type="submit", value="Submit")
+      form(action="/" method="POST").pelican-weather-plus
+        button(type="submit") Save
+      div.saved-weather-wrapper
+        - location.forEach(function(items) {
+          li #{items.location}
+            a(href='/')
+        - });
 
 include ./partials/footer.pug
