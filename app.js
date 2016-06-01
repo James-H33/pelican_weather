@@ -1,6 +1,7 @@
 var express         = require('express');
 var app             = express();
 var bodyParser      = require('body-parser');
+var methodOverride  = require('method-override');
 var mongoose        = require('mongoose');
 var passport        = require('passport');
 var localStratedgy  = require('passport-local');
@@ -20,6 +21,8 @@ mongoose.connect('mongodb://localhost/pelican_weather');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'pug');
+app.use(methodOverride('_method'));
+
 
 
 // Use Routes

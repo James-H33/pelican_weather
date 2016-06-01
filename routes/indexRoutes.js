@@ -1,10 +1,9 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-var request = require('request');
-var Weather = require('../models/weatherModel');
+var express        = require('express');
+var router         = express.Router();
+var mongoose       = require('mongoose');
+var request        = require('request');
+var Weather        = require('../models/weatherModel');
 var weatherData;
-
 
 router.get('/', function(req, res) {
   var query = req.query.search;
@@ -26,6 +25,7 @@ router.get('/', function(req, res) {
     }
   });
 });
+
 
 router.post('/', function(req, res) {
 
@@ -51,5 +51,19 @@ router.post('/', function(req, res) {
     }
   });
 });
+
+
+router.delete('/:id', function(req, res) {
+  Weather.findByIdAndRemove(req.params.id, req.body.weather, function(err, item) {
+    if(err) {
+      console.log(err);
+      res.redirect('/');
+    } else {
+      console.log('Deleted' + item);
+      res.redirect('/');
+    }
+  });
+});
+
 
 module.exports = router;
