@@ -477,9 +477,10 @@ body {
     display: inline-block;
     margin: 0 10px; }
     .register-form-footer li button {
-      width: 125px;
-      height: 35px;
+      width: 150px;
+      height: 40px;
       font-size: 20px;
+      color: #F1F8F9;
       display: inline;
       background: transparent;
       margin: 20px auto;
@@ -489,23 +490,11 @@ body {
       -webkit-transition: all 0.5s ease;
       transition: all 0.5s ease; }
       .register-form-footer li button:nth-of-type(1) {
-        color: #F1F8F9;
         border: 2px solid #54BAE6; }
-      .register-form-footer li button:hover {
-        background: #54BAE6; }
-      .register-form-footer li button:nth-of-type(2) {
-        width: 125px;
-        height: 35px;
-        font-size: 20px;
-        display: inline;
-        color: #F1F8F9;
-        background: transparent;
-        margin: 20px auto;
-        outline: none;
-        border: 2px solid #54BAE6;
-        -webkit-appearance: none;
-        border-radius: 4px;
-        -webkit-transition: all 0.5s ease;
-        transition: all 0.5s ease; }
-        .register-form-footer li button:nth-of-type(2):hover {
+        .register-form-footer li button:nth-of-type(1):hover {
           background: #54BAE6; }
+      .register-form-footer li button:nth-of-type(2) {
+        border: 2px solid #F1F8F9; }
+        .register-form-footer li button:nth-of-type(2):hover {
+          color: #2E3335;
+          background: #F1F8F9; }

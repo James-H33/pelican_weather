@@ -24,6 +24,6 @@ html
             li: a(href="/login") login
             li: a(href="/register") register
           - } else {
-            li: a(href="#") UserName
-            li: a(href="#") logout
+            li: a(href="#") #{user.username}
+            li: a(href="/logout") logout
           - }

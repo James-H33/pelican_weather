@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
         if(err) {
           console.log(err);
         } else {
-          res.render('index', {location: loc, weather: weatherData});
+          res.render('index', {location: loc, weather: weatherData, user: req.user});
           return weatherData;
         }
       });
@@ -27,7 +27,7 @@ router.get('/', function(req, res) {
 });
 
 
-router.post('/', function(req, res) {
+router.post('/', isLoggedIn, function(req, res) {
 
   var cityName = weatherData.name; // if printed cityName = 'Tampa';
 
@@ -45,7 +45,7 @@ router.post('/', function(req, res) {
         if(err) {
           console.log(err);
         } else {
-          res.render('index', {location: loc, weather: weatherData});
+          res.render('index', {location: loc, weather: weatherData, user: req.user});
         }
       });
     }
@@ -64,6 +64,15 @@ router.delete('/:id', function(req, res) {
     }
   });
 });
+
+// Middleware
+function isLoggedIn(req, res, next) {
+  if(req.isAuthenticated()) {
+    return next();
+  }
+    res.redirect('/login');
+}
+
 
 
 module.exports = router;
