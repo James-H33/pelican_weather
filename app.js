@@ -4,13 +4,19 @@ var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override');
 var mongoose        = require('mongoose');
 var passport        = require('passport');
-var localStratedgy  = require('passport-local');
-var request = require('request');
+var localStrategy  = require('passport-local');
+var request         = require('request');
 
+
+// Schemas
+var User = require('./models/userModel');
+var Weather = require('./models/weatherModel');
+
+// Global Variable
 var weatherData;
 
 // Ports
-var port = process.env.PORT || 6000;
+var port = process.env.PORT || 8080;
 var portIP = process.env.IP;
 
 //  Require Routes
@@ -24,8 +30,28 @@ app.set('view engine', 'pug');
 app.use(methodOverride('_method'));
 
 
+// Passport Config
+app.use(require('express-session')({
+  secret: "Some secret",
+  resave: false,
+  saveUninitialized: false
+}));
 
-// Use Routes
+// Checks for a user on every route(.locals). next(); keeps the code moving
+app.use(function(req, res, next){
+  res.locals.user = req.user;
+  next();
+});
+
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+// Using Routes | This needs to go below Passport
 app.use(indexRoutes);
 app.use(logingRoutes);
 
