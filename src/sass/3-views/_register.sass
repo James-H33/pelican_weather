@@ -85,31 +85,27 @@
     margin: 0 10px
 
     button
-      width: 125px
-      height: 35px
+      width: 150px
+      height: 40px
       font-size: 20px
-      display: inline
       color: $weather-back-color
+      display: inline
       background: transparent
       margin: 20px auto
       outline: none
-      border: 2px solid $off-blue
       -webkit-appearance: none
       border-radius: 4px
       transition: all 0.5s ease
 
-      &:hover
-        background: $off-blue
+      &:nth-of-type(1)
+        border: 2px solid $off-blue
 
-    &:nth-of-type(2)
-      margin: 20px 0
+        &:hover
+          background: $off-blue
 
-      &:hover
-        a
-          color: $main-back-color
+      &:nth-of-type(2)
+        border: 2px solid $weather-back-color
 
-      a
-        color: $weather-back-color
-        font-size: 20px
-        text-decoration: none
-        margin: 5px
+        &:hover
+          color: $weather-bottom-color
+          background: $weather-back-color

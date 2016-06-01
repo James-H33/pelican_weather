@@ -134,7 +134,7 @@ body {
     .header-display ul {
       width: 400px;
       position: absolute;
-      top: 20px;
+      top: 25px;
       right: 10px;
       text-align: right; }
       .header-display ul li {
@@ -328,6 +328,7 @@ body {
       border: 2px solid #54BAE6;
       -webkit-appearance: none;
       border-radius: 4px;
+      cursor: pointer;
       -webkit-transform: translateY(5px);
       transform: translateY(5px);
       -webkit-transition: all 0.5s ease;
@@ -346,7 +347,13 @@ body {
   font-size: 20px;
   border: 2px solid #F1F8F9;
   border-radius: 4px;
-  background: transparent; }
+  cursor: pointer;
+  background: transparent;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+  .pelican-weather-plus button:hover {
+    color: #2E3335;
+    background: #F1F8F9; }
 
 .saved-weather-wrapper {
   width: 100%;
@@ -356,7 +363,37 @@ body {
     width: 100%;
     height: 80px;
     background: #F1F8F9;
-    margin: 5px 0; }
+    margin: 5px 0;
+    list-style: none;
+    position: relative; }
+    .saved-weather-wrapper li:nth-last-of-type(1) {
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px; }
+    .saved-weather-wrapper li h2 {
+      color: #A5ACAF;
+      padding-top: 25px;
+      padding-left: 8px; }
+
+.pelican-weather-delete {
+  width: 100px;
+  height: auto; }
+  .pelican-weather-delete button {
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    color: #2E3335;
+    background: transparent;
+    border: 2px solid #2E3335;
+    border-radius: 4px;
+    position: absolute;
+    right: 10px;
+    top: 22px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+    .pelican-weather-delete button:hover {
+      color: #F1F8F9;
+      background: #2E3335; }
 
 .register-wrapper {
   width: 100%;
@@ -444,23 +481,31 @@ body {
       height: 35px;
       font-size: 20px;
       display: inline;
-      color: #F1F8F9;
       background: transparent;
       margin: 20px auto;
       outline: none;
-      border: 2px solid #54BAE6;
       -webkit-appearance: none;
       border-radius: 4px;
       -webkit-transition: all 0.5s ease;
       transition: all 0.5s ease; }
+      .register-form-footer li button:nth-of-type(1) {
+        color: #F1F8F9;
+        border: 2px solid #54BAE6; }
       .register-form-footer li button:hover {
         background: #54BAE6; }
-    .register-form-footer li:nth-of-type(2) {
-      margin: 20px 0; }
-      .register-form-footer li:nth-of-type(2):hover a {
-        color: #525C64; }
-      .register-form-footer li:nth-of-type(2) a {
-        color: #F1F8F9;
+      .register-form-footer li button:nth-of-type(2) {
+        width: 125px;
+        height: 35px;
         font-size: 20px;
-        text-decoration: none;
-        margin: 5px; }
+        display: inline;
+        color: #F1F8F9;
+        background: transparent;
+        margin: 20px auto;
+        outline: none;
+        border: 2px solid #54BAE6;
+        -webkit-appearance: none;
+        border-radius: 4px;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease; }
+        .register-form-footer li button:nth-of-type(2):hover {
+          background: #54BAE6; }

@@ -23,8 +23,10 @@ section.pelican-intro-wrapper
         button(type="submit") Save
       div.saved-weather-wrapper
         - location.forEach(function(items) {
-          li #{items.location}
-            a(href='/')
+          li
+            h2 #{items.location}
+            form(action='/'+items._id+'?_method=DELETE' method='POST').pelican-weather-delete
+              button(type="submit") Del
         - });
 
 include ./partials/footer.pug
