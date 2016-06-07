@@ -16,7 +16,7 @@ var Weather = require('./models/weatherModel');
 var weatherData;
 
 // Ports
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 6000;
 var portIP = process.env.IP;
 
 //  Require Routes

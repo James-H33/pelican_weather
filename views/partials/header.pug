@@ -9,7 +9,7 @@ html
   body
     div.header-logo
       img(src="/imgs/pelican-logo.png")
-      h1 Pelican Weather
+      h1: a(href="/") Pelican Weather
     nav.header-wrapper
       div.header-menu-button
         span
@@ -18,12 +18,14 @@ html
       div.header-display
         div.header-mobile-logo
           img(src="/imgs/pelican-logo.png")
-          h2 Pelican Weather
+          h2: a(href="/") Pelican Weather
         ul
           - if (!user) {
+            li: a(href="/") Home
             li: a(href="/login") login
             li: a(href="/register") register
           - } else {
+            li: a(href="/") Home
             li: a(href="#") #{user.username}
             li: a(href="/logout") logout
           - }

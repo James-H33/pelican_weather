@@ -22,11 +22,15 @@ section.pelican-intro-wrapper
       form(action="/" method="POST").pelican-weather-plus
         button(type="submit") Save
       div.saved-weather-wrapper
+        - if (!user) {
+
+        -} else {
         - location.forEach(function(items) {
           li
             h2 #{items.location}
             form(action='/'+items._id+'?_method=DELETE' method='POST').pelican-weather-delete
               button(type="submit") Del
         - });
+        -}
 
 include ./partials/footer.pug

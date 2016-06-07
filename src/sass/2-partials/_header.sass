@@ -145,7 +145,7 @@ body
 
       li
         width: 100px
-        height: 40px
+        height: 35px
         margin: 0 10px
         padding-left: 0
         display: inline-block
@@ -175,6 +175,11 @@ body
   h2
     color: $weather-back-color
 
+    a
+      color: $weather-back-color
+      text-decoration: none
+      cursor: pointer
+
 @media(min-width: 769px)
 
   .header-mobile-logo
@@ -194,6 +199,10 @@ body
     margin: 0 5px
     text-shadow: 0 2px 10px $weather-bottom-color
 
+    a
+      color: $weather-back-color
+      text-decoration: none
+      cursor: pointer
 
   img
     display: none
@@ -202,6 +211,7 @@ body
 
   .header-logo
     width: 500px
+    z-index: 100
 
     h1
       font-size: 30px

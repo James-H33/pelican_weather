@@ -1,8 +1,17 @@
 include ./partials/header.pug
 
-form(action='/login' method='POST')
-  input(type='text' name='username' placeholder='username')
-  input(type='password' name='password' placeholder='password')
-  button Submit
+section.login-wrapper
+  div.login-display
+    div.login-form
+      div.login-form-heading
+        h2 Login Form
+      form(action='/login' method='POST').login-form-input
+        input(type='text' name='username' placeholder='Username' required)
+        input(type='password' name='password' placeholder='Password' required)
+        div.login-form-footer
+          figure
+            li: button Submit
+            li: button
+              a(href='/register') Register
 
 include ./partials/footer.pug
