@@ -6,3 +6,15 @@ Requirements
 How to run:
   - npm install
   - gulp
+
+
+To Do List:
+-- Fix Javascript
+-- Additional information for each user
+-- Associate weather saves to each user
+-- Add User information page
+-- Default Avatars
+
+-- Online Database
+-- Google, Facebook, GitHub Passports
+-- Send thank you E-mails to those who sign up
