@@ -15,14 +15,21 @@ router.get('/', function(req, res) {
     weatherData = parsedData;
 
     if (!error && response.statusCode == 200) {
-      Weather.find({}, function(err, loc) {
-        if(err) {
-          console.log(err);
-        } else {
+      if (req.user == null) {
+        var loc = null;
           res.render('index', {location: loc, weather: weatherData, user: req.user});
-          return weatherData;
-        }
-      });
+      } else {
+        User.findById(req.user.id, function(err, foundUser) {
+          if (err || foundUser.weatherSaves.length >= 3) {
+            console.log(err);
+            var loc = foundUser.weatherSaves;
+            res.render('index', {location: loc, weather: weatherData, user: req.user});
+          } else {
+            var loc = foundUser.weatherSaves;
+            res.render('index', {location: loc, weather: weatherData, user: req.user});
+          }
+        });
+      }
     }
   });
 });
@@ -48,51 +55,28 @@ router.post('/', isLoggedIn, function(req, res) {
         res.render('index', {location: loc, weather: weatherData, user: req.user});
       }
     })
-
-  // Weather.create(newLocations, function(err, location) {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log(location);
-  //
-  //     Weather.find({}, function(err, loc) {
-  //       if(err) {
-  //         console.log(err);
-  //       } else {
-  //         res.render('index', {location: loc, weather: weatherData, user: req.user});
-  //       }
-  //     });
-  //   }
-  // });
 });
 
 
 router.delete('/:id', function(req, res) {
 
-  // User.findById(req.user.id, function(err, thatUser) {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     thatUser.weatherSaves.findByIdAndRemove(req.params.id, function(err, foundWeather) {
-  //       if (err) {
-  //         console.log(err + 'weatherSaves!!');
-  //       } else {
-  //         console.log('Deleted' + foundWeather);
-  //         res.redirect('/');
-  //       }
-  //     })
-  //   }
-  // })
-
-  User.findByIdAndRemove(req.params.id, req.body.weather, function(err, item) {
-    if(err) {
+  User.findById(req.user.id, function(err, foundUser) {
+    if (err) {
       console.log(err);
-      res.redirect('/');
     } else {
-      console.log('Deleted' + item);
+      var index;
+      for (var i = 0; i < foundUser.weatherSaves.length; i++) {
+        if (foundUser.weatherSaves[i]._id == req.params.id) {
+           index = i;
+         }
+      }
+
+      foundUser.weatherSaves[index].remove();
+      foundUser.save();
       res.redirect('/');
     }
   });
+
 });
 
 
