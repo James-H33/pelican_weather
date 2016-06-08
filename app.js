@@ -23,8 +23,8 @@ var portIP = process.env.IP;
 var indexRoutes = require('./routes/indexRoutes')
 var logingRoutes = require('./routes/logingRoutes');
 
-mongoose.connect('mongodb://retsbud:String33@ds011024.mlab.com:11024/pelican_weather');
-// mongoose.connect('mongodb://localhost/pelican_weather');
+// mongoose.connect('mongodb://retsbud:String33@ds011024.mlab.com:11024/pelican_weather');
+mongoose.connect('mongodb://localhost/pelican_weather');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'pug');
